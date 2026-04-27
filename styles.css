@@ -1,1 +1,126 @@
 
+/* Reset básico para evitar diferenças entre navegadores */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Garante que a página ocupe toda a altura da tela */
+html,
+body {
+  min-height: 100%;
+}
+
+/* Estilo base da página */
+body {
+  font-family: 'Inter', sans-serif;
+  color: #ffffff;
+
+  /*
+    Background com overlay escuro:
+    - linear-gradient cria a máscara escura com cerca de 65% de opacidade
+    - url aponta para a imagem em assets/background.png
+  */
+  background:
+    linear-gradient(
+      rgba(5, 8, 15, 0.65),
+      rgba(5, 8, 15, 0.65)
+    ),
+    url("assets/background.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Container principal com centralização vertical e horizontal */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* Espaçamento interno para telas menores */
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+/* Bloco principal de conteúdo */
+.hero {
+  max-width: 720px;
+}
+
+/* Título principal */
+.hero h1 {
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+/* Texto descritivo */
+.description {
+  max-width: 580px;
+  margin: 0 auto;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* Área de contato abaixo do texto principal */
+.contact {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Link de e-mail */
+.contact a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Estado de hover do link */
+.contact a:hover {
+  color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Rodapé fixado visualmente próximo ao fim da tela */
+.footer {
+  position: absolute;
+  bottom: 1.5rem;
+
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* Ajustes para dispositivos móveis */
+@media (max-width: 600px) {
+  .page {
+    padding: 1.5rem;
+  }
+
+  .contact {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .footer {
+    bottom: 1rem;
+  }
+}
